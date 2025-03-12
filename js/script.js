@@ -1,3 +1,4 @@
+//Image Insert Function from 
 function insertImage(event) {
     const file = event.target.files[0];
     if (file) {
@@ -9,6 +10,7 @@ function insertImage(event) {
     }
 }
 
+//Image Drag and Drop
 function handleDrop(event) {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
@@ -21,13 +23,14 @@ function handleDrop(event) {
     }
 }
 
+//Save File function
 function saveContent() {
     const content = document.getElementById('editor').innerHTML;
     
     const fileName = prompt("Enter the file name:", "mlpeditor");
     
     const finalFileName = fileName ? fileName : 'mlpeditor';
-
+    //Blob = Binary Large Object, type: text/html makes content in HTML Format
     const blob = new Blob([content], { type: 'text/html' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -36,7 +39,7 @@ function saveContent() {
     alert('Content Saved as file!');
 }
 
-
+//Load File function
 function loadContent() {
     const editor = document.getElementById('editor');
     const input = document.createElement('input');
@@ -55,6 +58,7 @@ function loadContent() {
     input.click();
 }
 
+//If click temp text disappear if nothing inside temp text appear
 document.addEventListener("DOMContentLoaded", function() {
     const editor = document.getElementById("editor");
     editor.addEventListener("focus", function() {
