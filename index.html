@@ -7,14 +7,15 @@
     <link rel="shortcut icon" href="./img/mlp.png" type="image/x-icon">
     <script src="./js/script.js" defer></script>
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <h2>MLP Text Editor</h2>
     
     <div id="toolbar">
         <input type="file" id="imageUpload" accept="image/*" onchange="insertImage(event)">
-        <button onclick="saveContent()">Save</button>
-        <button onclick="loadContent()">Load</button>
+        <button onclick="saveContent()"><i class="fa fa-download"></i> Save</button>
+        <button onclick="loadContent()"><i class="fa fa-upload"></i> Load</button>
     </div>
     
     <div id="editor" contenteditable="true" ondrop="handleDrop(event)" ondragover="event.preventDefault()">
