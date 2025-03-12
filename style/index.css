@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+#toolbar button {
+    margin: 5px;
+}
+#editor {
+    border: 1px solid #ccc;
+    min-height: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    outline: none;
+}
+.image-preview {
+    max-width: 100%;
+    height: auto;
+}   

@@ -1,0 +1,18 @@
+# MLPEditor
+
+MLPEditor is a simple web-based text editor with image insertion, saving and loading files. It saves files as .mlp based on the name for fun.
+
+## Features
+
+* Image Insertion: Insert Images via file upload or drag and drop
+* Save Content: Save your editor content as an mlp file that you can download.
+* Load Content: Load previously saved content into the editor.
+
+## How to Run
+
+* Clone the project with
+----
+git clone https://github.com/EldinBegano/MLPEditor.git
+----
+
+* Open the index.html

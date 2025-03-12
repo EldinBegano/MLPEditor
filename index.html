@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Text Editor</title>
+    <link rel="shortcut icon" href="./img/mlp.png" type="image/x-icon">
+    <script src="./js/script.js" defer></script>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <h2>MLP Text Editor</h2>
+    
+    <div id="toolbar">
+        <input type="file" id="imageUpload" accept="image/*" onchange="insertImage(event)">
+        <button onclick="saveContent()">Save</button>
+        <button onclick="loadContent()">Load</button>
+    </div>
+    
+    <div id="editor" contenteditable="true" ondrop="handleDrop(event)" ondragover="event.preventDefault()">
+        Start writing here...
+    </div>
+
+</body>
+</html>
