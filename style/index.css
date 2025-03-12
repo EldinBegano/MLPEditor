@@ -62,13 +62,16 @@ h2 {
     background-color: #1e1e1e;
     color: #ddd; 
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.2;
     padding: 15px;
     border-radius: 8px;
     resize: both;
     overflow: auto;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     transition: border-color 0.2s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 #editor:focus {
