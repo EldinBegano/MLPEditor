@@ -17,8 +17,9 @@
         <button onclick="saveContent()"><i class="fa fa-download"></i> Save</button>
         <button onclick="loadContent()"><i class="fa fa-upload"></i> Load</button>
     </div>
-    
-    <div id="editor" contenteditable="true" ondrop="handleDrop(event)" ondragover="event.preventDefault()">Start writing here...</div>
+
+    <div id="editor" contenteditable="true" spellcheck="false" ondrop="handleDrop(event)" ondragover="event.preventDefault()">Start writing here...</div>
+    <div id="suggestions" class="suggestions-box"></div>
 
 </body>
 </html>

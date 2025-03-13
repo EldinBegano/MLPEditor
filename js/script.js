@@ -72,3 +72,90 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+let words = [];
+let suggestionBox = document.getElementById('suggestions');
+let editor = document.getElementById('editor');
+
+editor.addEventListener('input', function () {
+    updateWordList();
+    let lastWord = getLastWord();
+    showSuggestions(lastWord);
+});
+
+editor.addEventListener('keydown', function (event) {
+    let suggestions = document.querySelectorAll('.suggestion');
+    let selected = document.querySelector('.suggestion.selected');
+
+    if (event.key === 'ArrowDown' && suggestions.length) {
+        event.preventDefault();
+        if (selected) {
+            selected.classList.remove('selected');
+            let next = selected.nextElementSibling || suggestions[0];
+            next.classList.add('selected');
+        } else {
+            suggestions[0].classList.add('selected');
+        }
+    } else if (event.key === 'ArrowUp' && suggestions.length) {
+        event.preventDefault();
+        if (selected) {
+            selected.classList.remove('selected');
+            let prev = selected.previousElementSibling || suggestions[suggestions.length - 1];
+            prev.classList.add('selected');
+        }
+    } else if (event.key === 'Enter' && selected) {
+        event.preventDefault();
+        insertWord(selected.innerText);
+    }
+});
+
+function updateWordList() {
+    let text = editor.innerText;
+    let wordsArray = text.match(/\b\w{2,}\b/g) || [];
+    
+    wordsArray.forEach(word => {
+        if (!words.includes(word.toLowerCase())) {
+            words.push(word.toLowerCase());
+        }
+    });
+}
+
+function getLastWord() {
+    let text = editor.innerText;
+    let wordsArray = text.split(/\s+/);
+    return wordsArray[wordsArray.length - 1] || '';
+}
+
+function showSuggestions(givenchars) {
+    if (!givenchars || givenchars.length < 2) {
+        suggestionBox.style.display = 'none';
+        return;
+    }
+
+    let matches = words.filter(word => word.startsWith(givenchars.toLowerCase()));
+
+    if (matches.length === 0) {
+        suggestionBox.style.display = 'none';
+        return;
+    }
+
+    suggestionBox.innerHTML = matches.map(word => `<div class="suggestion">${word}</div>`).join('');
+    suggestionBox.style.display = 'block';
+
+    let rect = editor.getBoundingClientRect();
+    suggestionBox.style.left = `${rect.left + window.scrollX}px`;
+    suggestionBox.style.top = `${rect.bottom + window.scrollY}px`;
+
+    document.querySelectorAll('.suggestion').forEach(item => {
+        item.addEventListener('click', () => insertWord(item.innerText));
+    });
+}
+
+function insertWord(word) {
+    let text = editor.innerText;
+    let wordsArray = text.split(/\s+/);
+    wordsArray[wordsArray.length - 1] = word;
+    editor.innerText = wordsArray.join(' ') + ' ';
+    suggestionBox.style.display = 'none';
+    editor.focus();
+}

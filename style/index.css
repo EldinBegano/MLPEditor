@@ -85,3 +85,31 @@ h2 {
     border: 1px solid #555;
     border-radius: 5px;
 }
+
+.suggestions-box {
+    position: absolute;
+    background: #3d3d3d;
+    border: 1px solid #555;
+    border-radius: 5px;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: auto;
+    min-width: 150px;
+    padding: 5px;
+}
+
+.suggestion {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ddd;
+    transition: background 0.2s ease;
+}
+
+.suggestion:hover, 
+.suggestion.selected {
+    background: #66c2ff;
+    color: #fff;
+}
