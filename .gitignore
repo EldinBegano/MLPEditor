@@ -1,0 +1,20 @@
+/node_modules/
+/dist/
+/out/
+/build/
+
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+*.log
+*.bak
+*.tmp
+
+
+.vscode/
+.idea/       
+.sublime-project
+.sublime-workspace
+
+/cache/
+.npm/

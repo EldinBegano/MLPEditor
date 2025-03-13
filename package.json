@@ -1,0 +1,24 @@
+{
+  "name": "mlpeditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+  "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EldinBegano/MLPEditor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/EldinBegano/MLPEditor/issues"
+  },
+  "homepage": "https://github.com/EldinBegano/MLPEditor#readme",
+  "devDependencies": {
+    "electron": "^35.0.1"
+  }
+}

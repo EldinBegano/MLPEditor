@@ -57,7 +57,8 @@ h2 {
 #editor {
     width: 90%;
     max-width: 900px;
-    height: 400px;
+    height: 90%;
+    max-height: 400px;
     border: 1px solid #555;
     background-color: #1e1e1e;
     color: #ddd; 
