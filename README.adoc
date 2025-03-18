@@ -1,12 +1,13 @@
 # MLPEditor
 
-MLPEditor is a simple web-based text editor with image insertion, saving and loading files. It saves files as .mlp based on the name for fun.
+MLPEditor is a simple web-based text editor with image insertion, saving and loading files. It saves files as .mlp (Masked Language Package), this file type doest't work anywhere else except the MLP editor.
 
 ## Features
 
 * Image Insertion: Insert Images via file upload or drag and drop
 * Save Content: Save your editor content as an mlp file that you can download.
 * Load Content: Load previously saved content into the editor.
+* Electron: To have it as an application on your desktop instead of always running index.html (Not Implemented Fully)
 
 ## How to Run
 

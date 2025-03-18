@@ -11,8 +11,8 @@
     "url": "git+https://github.com/EldinBegano/MLPEditor.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "MLP",
+  "license": "GPL-3.0-only",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/EldinBegano/MLPEditor/issues"
