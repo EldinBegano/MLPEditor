@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Text Editor</title>
-    <link rel="shortcut icon" href="./img/mlp.png" type="image/x-icon">
-    <script src="./js/script.js" defer></script>
+    <title>MLP Text Editor</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/script.js" defer></script>
 </head>
 <body>
     <h2>MLP Text Editor</h2>
     
     <div id="toolbar">
-        <input type="file" id="imageUpload" accept="image/*" onchange="insertImage(event)">
-        <button onclick="saveContent()"><i class="fa fa-download"></i> Save</button>
-        <button onclick="loadContent()"><i class="fa fa-upload"></i> Load</button>
+        <button id="newBtn"><i class="fa fa-file"></i> New</button>
+        <button id="openBtn"><i class="fa fa-folder-open"></i> Open</button>
+        <button id="saveBtn"><i class="fa fa-save"></i> Save</button>
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        <button id="imageBtn"><i class="fa fa-image"></i> Insert Image</button>
     </div>
 
-    <div id="editor" contenteditable="true" spellcheck="false" ondrop="handleDrop(event)" ondragover="event.preventDefault()">Start writing here...</div>
+    <div id="editor" contenteditable="true" spellcheck="false">Start writing here...</div>
     <div id="suggestions" class="suggestions-box"></div>
 
+    <div id="status-bar"></div>
 </body>
 </html>
