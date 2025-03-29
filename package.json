@@ -1,1 +1,60 @@
-{"name":"mlp-text-editor","version":"1.0.0","description":"MLP Text Editor Desktop Application","main":"main.js","scripts":{"start":"electron .","package":"electron-packager . MLPTextEditor --platform=win32,darwin,linux --arch=x64 --icon=./img/mlp.png --out=dist/ --overwrite"},"repository":{"type":"git","url":"git+https://github.com/EldinBegano/MLPEditor.git"},"keywords":["text-editor","electron","mlp"],"author":"MLP","license":"GPL-3.0-only","type":"commonjs","bugs":{"url":"https://github.com/EldinBegano/MLPEditor/issues"},"homepage":"https://github.com/EldinBegano/MLPEditor#readme","devDependencies":{"electron":"^27.3.11","electron-packager":"^17.1.2"}}
+{
+  "name": "mlp-text-editor",
+  "version": "1.0.0",
+  "description": "MLP Text Editor Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.mlp.texteditor",
+    "productName": "MLPTextEditor",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "img/*"
+    ],
+    "win": {
+      "icon": "img/mlp.ico",
+      "target": "nsis"
+    },
+    "mac": {
+      "icon": "img/mlp.icns",
+      "target": "dmg"
+    },
+    "linux": {
+      "icon": "img/mlp.png",
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "maintainer": "MLP",
+      "category": "Utility"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EldinBegano/MLPEditor.git"
+  },
+  "keywords": [
+    "text-editor",
+    "electron",
+    "mlp"
+  ],
+  "author": "MLP",
+  "license": "GPL-3.0-only",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/EldinBegano/MLPEditor/issues"
+  },
+  "homepage": "https://github.com/EldinBegano/MLPEditor#readme",
+  "devDependencies": {
+    "electron": "^27.3.11",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2"
+  }
+}
