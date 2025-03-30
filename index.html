@@ -2,28 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src https://fonts.googleapis.com https://fonts.gstatic.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLP Text Editor</title>
     <link rel="shortcut icon" href="./img/mlp.png" type="image/x-icon">
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anaheim&display=swap">
     <script src="./js/script.js" defer></script>
 </head>
 <body>
     <h2>MLP Text Editor</h2>
     
-    <div id="toolbar">
-        <button id="newBtn"><i class="fa fa-file"></i> New</button>
-        <button id="openBtn"><i class="fa fa-folder-open"></i> Open</button>
-        <button id="saveBtn"><i class="fa fa-save"></i> Save</button>
-        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-        <button id="imageBtn"><i class="fa fa-image"></i> Insert Image</button>
+    <div class="app-container">
+        <div id="toolbar">
+            <button id="newBtn"><i class="fa fa-file"></i> New</button>
+            <button id="openBtn"><i class="fa fa-folder-open"></i> Open</button>
+            <button id="saveBtn"><i class="fa fa-save"></i> Save</button>
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            <button id="imageBtn"><i class="fa fa-image"></i> Image</button>
+            <button id="boldBtn"><i class="fa fa-bold"></i></button>
+            <button id="underlineBtn"><i class="fa fa-underline"></i></button>
+            <button id="colorBtn"><i class="fa fa-paint-brush"></i></button>
+            <input type="color" id="textColorPicker" value="#dddddd" style="display: none;">
+            <select id="fontSelect">
+                <option value="'Liberation Mono', Consolas, monospace">Monospace</option>
+                <option value="'Liberation Sans', Arial, sans-serif">Sans-serif</option>
+                <option value="'Times New Roman', Times, serif">Serif</option>
+                <option value="'Anaheim', sans-serif">Anaheim</option>
+                <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans</option>
+            </select>
+            <button id="toggleModeBtn"><i class="fa fa-moon-o"></i> Toggle Mode</button>
+        </div>
+
+        <div class="editor-wrapper">
+            <div id="editor" contenteditable="true" spellcheck="false">Start writing here...</div>
+            <div id="suggestions" class="suggestions-box"></div>
+        </div>
+
+        <div id="status-bar">
+            <span>Ready</span>
+            <div class="color-preview" id="currentColorPreview"></div>
+        </div>
     </div>
-
-    <div id="editor" contenteditable="true" spellcheck="false">Start writing here...</div>
-    <div id="suggestions" class="suggestions-box"></div>
-
-    <div id="status-bar"></div>
 </body>
 </html>

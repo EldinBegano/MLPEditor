@@ -7,7 +7,7 @@ MLPEditor is a simple web-based text editor with image insertion, saving and loa
 * Image Insertion: Insert Images via file upload or drag and drop
 * Save Content: Save your editor content as an mlp file that you can download.
 * Load Content: Load previously saved content into the editor.
-* Electron: To have it as an application on your desktop instead of always running index.html (Not Implemented Fully)
+* Electron: To have it as an application on your desktop instead of always running index.html (Only Linux until now)
 
 ## How to Run
 
