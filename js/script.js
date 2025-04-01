@@ -207,6 +207,25 @@ function saveFile() {
     }
 }
 
+function saveFile() {
+    if (editor.innerHTML === "Start writing here...") {
+        updateStatusBar('Nothing to save');
+        return;
+    }
+    
+    if (window.electronAPI) {
+        const content = editor.innerHTML;
+        
+        if (currentFilePath) {
+            window.electronAPI.saveFile(content);
+        } else {
+            saveFileAs();
+        }
+    } else {
+        updateStatusBar('File saving not available in browser mode');
+    }
+}
+
 function saveFileAs() {
     if (editor.innerHTML === "Start writing here...") {
         updateStatusBar('Nothing to save');
@@ -214,7 +233,8 @@ function saveFileAs() {
     }
     
     if (window.electronAPI) {
-        window.electronAPI.saveFile(editor.innerHTML);
+        const content = editor.innerHTML;
+        window.electronAPI.saveFile(content);
     } else {
         updateStatusBar('File saving not available in browser mode');
     }
@@ -225,7 +245,26 @@ function insertImage(event) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            document.execCommand('insertImage', false, e.target.result);
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100%';
+            
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                range.deleteContents();
+                range.insertNode(img);
+                
+                range.setStartAfter(img);
+                range.setEndAfter(img);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            } else {
+                editor.appendChild(img);
+            }
+            
+            updateStatusBar('Image inserted');
+            document.getElementById('imageUpload').value = '';
         };
         reader.readAsDataURL(file);
     }
@@ -236,7 +275,25 @@ function handleDrop(event) {
     if (file && file.type.startsWith('image/')) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            document.execCommand('insertImage', false, e.target.result);
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100%';
+            
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                range.deleteContents();
+                range.insertNode(img);
+                
+                range.setStartAfter(img);
+                range.setEndAfter(img);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            } else {
+                editor.appendChild(img);
+            }
+            
+            updateStatusBar('Image inserted');
         };
         reader.readAsDataURL(file);
     }

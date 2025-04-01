@@ -294,7 +294,7 @@ body {
     color: #777;
     font-family: 'Liberation Mono', Consolas, monospace;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 0;
     padding: 10px 5px;
     text-align: right;
     overflow: hidden;
