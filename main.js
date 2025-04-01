@@ -110,7 +110,7 @@ app.on('activate', () => {
 ipcMain.on('show-save-dialog', (event, content) => {
   dialog.showSaveDialog({
     title: 'Save MLP File',
-    defaultPath: path.join(app.getPath('documents'), 'mlpeditor.mlp'),
+    defaultPath: path.join(app.getPath('documents'), 'untitled.mlp'),
     filters: [{ name: 'MLP Files', extensions: ['mlp'] }]
   }).then(result => {
     if (!result.canceled && result.filePath) {
