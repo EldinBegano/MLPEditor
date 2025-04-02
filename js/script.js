@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateWordList();
         let lastWord = getLastWord();
         showSuggestions(lastWord);
+        updateWordCount();
     });
     
     editor.addEventListener('keydown', function (event) {
@@ -450,4 +451,10 @@ function rgbToHex(rgb) {
     }
     
     return hex;
+}
+
+function updateWordCount() {
+    let text = editor.innerText.trim();
+    let wordCount = text.length === 0 ? 0 : text.split(/\s+/).length;
+    document.getElementById('wordCount').textContent = `Words: ${wordCount}`;
 }

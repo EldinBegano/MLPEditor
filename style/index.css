@@ -311,3 +311,8 @@ body {
   .anaheim-font {
     font-family: 'Anaheim', sans-serif;
   }
+
+  #wordCount{
+    position: fixed;
+    left: 48%;
+  }
